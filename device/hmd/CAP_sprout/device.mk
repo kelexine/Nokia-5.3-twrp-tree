@@ -20,16 +20,15 @@ AB_OTA_POSTINSTALL_CONFIG += \
 # Boot control HAL
 PRODUCT_PACKAGES += \
     android.hardware.boot@1.0-impl \
-    android.hardware.boot@1.0-service
-
-PRODUCT_PACKAGES += \
-    bootctrl.trinket
-
-PRODUCT_STATIC_BOOT_CONTROL_HAL := \
+    android.hardware.boot@1.0-service \
+    android.hardware.boot@1.0-impl-wrapper.recovery \
+    android.hardware.boot@1.0-impl-wrapper \
+    android.hardware.boot@1.0-impl-recovery \
     bootctrl.trinket \
-    libgptutils \
-    libz \
-    libcutils
+    bootctrl.trinket.recovery \
+
+PRODUCT_HOST_PACKAGES += \
+    libandroidicu
 
 PRODUCT_PACKAGES += \
     otapreopt_script \
