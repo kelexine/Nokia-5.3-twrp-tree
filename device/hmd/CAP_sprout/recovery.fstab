@@ -7,7 +7,6 @@
 /sdcard         vfat     /dev/block/mmcblk1p1                       flags=display=sdcard
 /boot           emmc     /dev/block/bootdevice/by-name/boot         flags=display=boot;backup=1;flashimg
 /misc           emmc     /dev/block/bootdevice/by-name/misc         flags=display=misc;backup=1;flashimg
-
 /system         emmc     system                                     flags=display=system;logical;slotselect;backup=1;flashimg
 /system_ext     emmc     system_ext                                 flags=display=system_ext;logical;slotselect;backup=1;flashimg
 /product        emmc     product                                    flags=display=product;logical;slotselect;backup=1;flashimg
