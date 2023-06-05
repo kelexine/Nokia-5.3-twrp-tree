@@ -4,9 +4,13 @@
 #
 # SPDX-License-Identifier: Apache-2.0
 #
+# define hardware platform
+PRODUCT_PLATFORM := trinket
+
+#TEST
 
 LOCAL_PATH := device/hmd/CAP_sprout
-# A/B
+#  A/B support
 AB_OTA_POSTINSTALL_CONFIG += \
     RUN_POSTINSTALL_system=true \
     POSTINSTALL_PATH_system=system/bin/otapreopt_script \
