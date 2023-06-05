@@ -9,6 +9,6 @@ PRODUCT_MAKEFILES := \
     $(LOCAL_DIR)/omni_CAP_sprout.mk
 
 COMMON_LUNCH_CHOICES := \
-    omni_CAP_sprout-user \
-    omni_CAP_sprout-userdebug \
+    #omni_CAP_sprout-user \
+    #omni_CAP_sprout-userdebug \
     omni_CAP_sprout-eng
