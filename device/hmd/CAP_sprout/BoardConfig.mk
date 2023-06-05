@@ -18,12 +18,15 @@ AB_OTA_PARTITIONS += \
     product \
     vendor
 BOARD_USES_RECOVERY_AS_BOOT := true
+TARGET_NO_KERNEL := false
+TARGET_NO_RECOVERY := false
+BOARD_BUILD_SYSTEM_ROOT_IMAGE := true
 
 # Architecture
 TARGET_ARCH := arm64
 TARGET_ARCH_VARIANT := armv8-a
 TARGET_CPU_ABI := arm64-v8a
-TARGET_CPU_ABI2 := 
+TARGET_CPU_ABI2 :=
 TARGET_CPU_VARIANT := generic
 TARGET_CPU_VARIANT_RUNTIME := generic
 
@@ -34,12 +37,20 @@ TARGET_2ND_CPU_ABI2 := armeabi
 TARGET_2ND_CPU_VARIANT := generic
 TARGET_2ND_CPU_VARIANT_RUNTIME := cortex-a9
 
+TARGET_USES_64_BIT_BINDER := true
+
+ENABLE_CPUSETS := true
+ENABLE_SCHEDBOOST := true
+
 # APEX
 DEXPREOPT_GENERATE_APEX_IMAGE := true
 
 # Bootloader
-TARGET_BOOTLOADER_BOARD_NAME := SM6125
+#TARGET_BOOTLOADER_BOARD_NAME := SM6125
+TARGET_BOOTLOADER_BOARD_NAME := trinket
 TARGET_NO_BOOTLOADER := true
+TARGET_USES_UEFI := true
+BUILD_BROKEN_DUP_RULES := true
 
 # Kernel
 BOARD_BOOTIMG_HEADER_VERSION := 2
@@ -63,9 +74,9 @@ ifeq ($(TARGET_FORCE_PREBUILT_KERNEL),true)
 TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilt/kernel
 TARGET_PREBUILT_DTB := $(DEVICE_PATH)/prebuilt/dtb.img
 BOARD_MKBOOTIMG_ARGS += --dtb $(TARGET_PREBUILT_DTB)
-BOARD_INCLUDE_DTB_IN_BOOTIMG := 
+BOARD_INCLUDE_DTB_IN_BOOTIMG :=
 BOARD_PREBUILT_DTBOIMAGE := $(DEVICE_PATH)/prebuilt/dtbo.img
-BOARD_KERNEL_SEPARATED_DTBO := 
+BOARD_KERNEL_SEPARATED_DTBO :=
 endif
 
 # Partitions
@@ -82,12 +93,23 @@ BOARD_SUPER_PARTITION_GROUPS := hmd_dynamic_partitions
 BOARD_HMD_DYNAMIC_PARTITIONS_PARTITION_LIST := system system_ext product vendor
 BOARD_HMD_DYNAMIC_PARTITIONS_SIZE := 4327046392 # TODO: Fix hardcoded value
 
+# Partitions (listed in the file) to be wiped under recovery.
+TARGET_RECOVERY_WIPE := $(LOCAL_PATH)/recovery.wipe
+
+# Workaround for error copying vendor files to recovery ramdisk
+BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE := ext4
+TARGET_COPY_OUT_VENDOR := vendor
+
 # Platform
 TARGET_BOARD_PLATFORM := trinket
+TARGET_BOARD_PLATFORM_GPU := qcom-adreno610
+QCOM_BOARD_PLATFORMS += trinket
 
 # Recovery
 TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USERIMAGES_USE_F2FS := true
+BOARD_HAS_LARGE_FILESYSTEM := true
+BOARD_HAS_NO_SELECT_BUTTON := true
 
 # Security patch level
 
@@ -144,5 +166,5 @@ TW_EXCLUDE_TWRPAPP := true
 TWRP_INCLUDE_LOGCAT := true
 TARGET_USES_LOGD := true
 TW_NO_USB_STORAGE := true
-TARGET_SUPPORTS_64_BIT_APPS := true	
+TARGET_SUPPORTS_64_BIT_APPS := true
 #TW_OVERRIDE_SYSTEM_PROPS := "ro.build.version.security_patch;ro.vendor.build.security_patch;ro.build.version.release"
