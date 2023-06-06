@@ -32,7 +32,6 @@ PRODUCT_PACKAGES += \
     libz \
     libcutils
 
-
 PRODUCT_HOST_PACKAGES += \
     libandroidicu
 
