@@ -26,6 +26,12 @@ PRODUCT_PACKAGES += \
     android.hardware.boot@1.0-impl-recovery \
     bootctrl.trinket \
     bootctrl.trinket.recovery \
+    
+PRODUCT_PACKAGES += \
+    libgptutils \
+    libz \
+    libcutils
+
 
 PRODUCT_HOST_PACKAGES += \
     libandroidicu
