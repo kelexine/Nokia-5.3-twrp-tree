@@ -166,13 +166,12 @@ TW_DEVICE_VERSION := Nokia 5.3
 TARGET_ENFORCE_AB_OTA_PARTITION_LIST := true
 
 # Extras
-BOARD_PROVIDES_GPTUTILS := true
 BOARD_SUPPRESS_SECURE_ERASE := true
 TW_USE_LEDS_HAPTICS := true
 USE_RECOVERY_INSTALLER := true
 TW_EXCLUDE_TWRPAPP := true
 TWRP_INCLUDE_LOGCAT := true
 TARGET_USES_LOGD := true
-TW_NO_USB_STORAGE := true
+#TW_NO_USB_STORAGE := true
 TARGET_SUPPORTS_64_BIT_APPS := true
 #TW_OVERRIDE_SYSTEM_PROPS := "ro.build.version.security_patch;ro.vendor.build.security_patch;ro.build.version.release"
