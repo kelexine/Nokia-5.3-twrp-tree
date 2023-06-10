@@ -3,7 +3,7 @@
 ```
 # Build V3.490
 #
-# By Samuel Kendall
+# By Franklin Kelechi @kelexine
 #
 # build.fingerprint=Nokia/CaptainAmerica
 #
